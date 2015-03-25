@@ -488,6 +488,7 @@ DEPENDENCIES
   rails (= 4.2.0)
   rails-timeago
   rails_12factor
+  rake
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

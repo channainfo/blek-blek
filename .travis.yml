@@ -13,7 +13,7 @@ script:
   - bundle exec rspec spec
 
 before_script:
-  - rm Gemfile.lock
+# - rm Gemfile.lock
   - cp config/application.travis.yml config/application.yml
   - cp config/database.travis.yml config/database.yml
   - psql -c 'create database blekmes_test' -U postgres

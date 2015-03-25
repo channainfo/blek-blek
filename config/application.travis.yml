@@ -1,0 +1,43 @@
+default: &default
+  APP_NAME: "Blek Blek"
+  HOST: ''
+
+  SECRET_KEY_BASE: ""
+
+  AWS_ACCESS_KEY: ""
+  AWS_SECRET: ""
+
+  MANDRILL_USERNAME: ""
+  MANDRILL_PASSWORD: ""
+
+  FOG_REGION: ""
+  FOG_DIRECTORY: ""
+  FOG_PROVIDER: ""
+
+  FB_ID: ''
+  FB_SECRET: 
+
+  GOOGLE_MAP_API_KEY: ""
+
+  EMAIL_SUPPORT: channa.ly@instedd.org
+  EMAIL_SYSTEM: channa.ly@instedd.org
+  EMAIL_CEO:  channa.info@gmail.com
+  RACK_ENV: development
+
+  CODECLIMATE_REPO_TOKEN: ''
+
+  STAGING_USER: ''
+  STAGING_PASSWORD: ''
+
+test:
+  <<: *default
+  CODECLIMATE_REPO_TOKEN: '7be0a90598b79d77d59a1268d97b427ad31d7c67f8b768d14c5ef720ea8e7f35'
+
+development:
+  <<: *default
+  FOG_DIRECTORY: 'blekmes-dev'
+
+production:
+  <<: *default
+  FOG_DIRECTORY: 'blekmes-production'
+  RACK_ENV: production

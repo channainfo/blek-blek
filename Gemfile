@@ -90,6 +90,7 @@ group :production do
 end
 
 group :test do
+  gem 'rake'
   gem 'database_cleaner'
   gem 'shoulda-matchers'
   gem 'faker'

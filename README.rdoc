@@ -1,5 +1,6 @@
 == README
 {<img src="https://travis-ci.org/channainfo/blek-blek.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/channainfo/blek-blek]
+{<img src="https://codeclimate.com/github/channainfo/blek-blek/badges/gpa.svg" />}[https://codeclimate.com/github/channainfo/blek-blek]
 
 
 
