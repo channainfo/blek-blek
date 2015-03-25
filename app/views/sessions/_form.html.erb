@@ -1,0 +1,24 @@
+<%= form_tag sessions_path, role: 'form', class: '' do %>
+  <div class='input-row'>
+    <%= text_field_tag :email, params[:email], class: 'form-control', placeholder: 'Username or Email', width: '100%' %>
+  </div>
+
+  <div class='input-row'>
+    <%= password_field_tag :password, '', class: 'form-control', placeholder: 'Password', width: '100%' %>
+  </div>
+
+  <p class='line'>
+    Don't have an account! <%= link_to 'Sign up', sign_up_path %>
+  </p>
+
+  <p class='line'>
+    Can't not sign in <%= link_to 'Forgot Password', forgot_password_path %>
+  </p>
+
+  <br>
+
+  <div class='input-row text-right'>
+    <%= button_tag "Sign me in", class: 'btn btn-info btn-signin btn-block btn-lg' %>
+  </div>
+
+<% end %>

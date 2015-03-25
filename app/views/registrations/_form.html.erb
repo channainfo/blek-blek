@@ -1,0 +1,36 @@
+<%= form_for @user, url: registrations_path, role: 'form', html: {class: ''} do |f| %>
+  <%= input_row do %>
+    <%= f.text_field :full_name, label: false, input_html: { class: 'form-control', placeholder: 'First name' } %>
+  <%end%>
+
+  <%= input_row do %>
+    <%= f.text_field :user_name, label: false, required: true, input_html: { class: 'form-control', placeholder: 'User name' } %>
+  <%end%>
+
+  <%= input_row do %>
+    <%= f.text_field :email, label: false, input_html: { class: 'form-control', placeholder: 'Email' } %>
+  <%end%>
+
+  <%= input_row do %>
+    <%= f.password_field :password, label: false, required: true, input_html: { class: 'form-control', placeholder: 'Password'} %>
+  <%end%>
+
+  <%= input_row do %>
+    <%= f.password_field :password_confirmation, label: false, required: true, input_html: { class: 'form-control', placeholder: 'Password Confirm' } %>
+  <%end%>
+
+  <%= input_row do %>
+    <%= f.select :gender, options_for_select(User::GENDERS),
+                include_blank: false,
+                input_html: { class: 'form-control', placeholder: 'Gender'} %>
+  <%end%>
+
+  <%= input_row do %>
+    <%= f.check_box :agree, label: false, id: 'agree-term' %>
+    <label for='agree-term' class='inline' > Agree with our <%= link_to 'Terms and Policy', '' %> </label>
+  <%end%>
+
+  <%= input_row do %>
+    <%= f.submit "Sign me up", class: 'btn btn-info btn-lg btn-block', id: 'btn-registration' %>
+  <%end%>
+<% end %>

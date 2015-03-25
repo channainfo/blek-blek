@@ -1,0 +1,19 @@
+language: ruby
+addons:
+  code_climate:
+    repo_token: '1255d26c'
+rvm:
+  - "2.2.0"
+env:
+  - DB=postgresql
+# uncomment this line if your project needs to run something other than `rake`:
+script:
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
+  - bundle exec rspec spec
+
+before_script:
+  - rm Gemfile.lock
+  - cp config/application.travis.yml config/application.yml
+  - cp config/database.travis.yml config/database.yml
+  - psql -c 'create database blekmes_test' -U postgres
