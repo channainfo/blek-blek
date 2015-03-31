@@ -1,7 +1,7 @@
 class RegistrationsController < ApplicationController
   layout "sign_in"
 
-  skip_before_action :authenticate_user!, except: [:destroy]
+  skip_before_action :authenticate_user!
 
   def new
     if user_signed_in?
@@ -48,7 +48,7 @@ class RegistrationsController < ApplicationController
   end
 
   def filter_params
-    params.require(:user).permit(:first_name, :last_name, :phone, :email, :user_name, :gender, :role, :password, :password_confirmation)
+    params.require(:user).permit(:first_name, :last_name, :phone, :email, :user_name, :gender, :password, :password_confirmation)
   end
 
   def send_welcome_messsage(user)
