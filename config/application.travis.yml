@@ -1,6 +1,8 @@
 default: &default
   APP_NAME: "Blek Blek"
-  HOST: ''
+  HOST: 'localhost'
+  API_HOST : 'localhost:3000'
+  API_PATH: '/api/v1'
 
   SECRET_KEY_BASE: ""
 
@@ -28,6 +30,9 @@ default: &default
 
   STAGING_USER: ''
   STAGING_PASSWORD: ''
+
+  PX_KEY: ''
+  PX_SECRET: ''
 
 test:
   <<: *default
