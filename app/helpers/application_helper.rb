@@ -34,10 +34,6 @@ module ApplicationHelper
     breadcrumb_create options, "Home", admin_root_url
   end
 
-  def breadcrumb_member(options=nil)
-    breadcrumb_create options, "Home", member_root_url
-  end
-
   def breadcrumb(options=nil)
     breadcrumb_create options, "Home", root_url
   end
@@ -49,10 +45,14 @@ module ApplicationHelper
   def breadcrumb_str options, home_text, home_url
     items = []
     char_sep = " ".html_safe
-    if( !options.nil?  && options.size != 0)
+    if options.blank?
+      icon = content_tag "i", " ", :class => "icon-user  icon-home"
+      items << content_tag(:li, icon + home_text , :class => "active")
+    else
       items <<  content_tag(:li , :class => "active") do
         link_to(home_text, home_url ) + content_tag(:span, char_sep, :class => "divider")
       end
+
       options.each do |option|
         option.each do |key, value|
           if value
@@ -64,9 +64,6 @@ module ApplicationHelper
           end
         end
       end 
-    else
-      icon = content_tag "i", " ", :class => "icon-user  icon-home"
-      items << content_tag(:li, icon + home_text , :class => "active")  
     end
     items.join("").html_safe
   end
@@ -115,28 +112,5 @@ module ApplicationHelper
     else
       "<i style='color:red; font-size: 120%;' class='glyphicon glyphicon-remove-circle'> </i>".html_safe
     end
-  end
-
-  def decoded_address
-    content_tag :div, '<i class="glyphicon glyphicon-map-marker"> </i> <span id="address"> </span>'.html_safe,
-                style: "display:none;", id: "p-formatted-address"
-  end
-
-  def fb_profile_for user
-    if user.fb_id
-      link_to "http://graph.facebook.com/#{user.fb_id}", class: '' do
-        image_tag "http://graph.facebook.com/#{user.fb_id}/picture", class: 'img-circle small-thumb'
-      end
-    else
-      ""
-    end
-  end
-
-  def app_params
-    params.except(:action, :controller, :_method, :authenticity_token)
-  end
-
-  def display_email email
-    email.gsub(/@/, ' at ')
   end
 end
