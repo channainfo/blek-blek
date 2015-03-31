@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  use_doorkeeper scope: 'oauth'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -14,6 +15,10 @@ Rails.application.routes.draw do
 
   root 'pages#home'
 
+  get '/home' => 'pages#home'
+
+  get 'oauth2/sign_in' => 'sessions#new', as: :oauth2_sign_in
+
   get 'sign_in' => 'sessions#new'
   get 'sign_in_fb' => 'sessions#create_with_fb'
   get 'sign_in_fb_m' => 'sessions#create_with_fb_m'
@@ -24,6 +29,18 @@ Rails.application.routes.draw do
 
   delete 'sign_out' => 'sessions#destroy'
   get '/forgot-password' => 'passwords#new', as: :forgot_password
+
+  namespace :api do #, path: '/', constraints: {subdomain: 'api'} do
+    namespace :v1 do
+      get 'me' => 'credentials#me'
+      resources :profiles
+    end
+  end
+
+  namespace :admin do
+    root 'users#index'
+    resources :users
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,0 +1,14 @@
+{
+  "resources": [
+    {
+      "name": "Users",
+      "examples": [
+        {
+          "description": "Get current user info",
+          "link": "users/get_current_user_info.json",
+          "groups": "all"
+        }
+      ]
+    }
+  ]
+}

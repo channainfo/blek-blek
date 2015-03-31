@@ -1,0 +1,32 @@
+<%= page_title "Users List" %>
+<%= paginate @users %>
+<table>
+  <thead>
+    <tr>
+      <td>Username</td>
+      <td>Email</td>
+      <td>Full name</td>
+      <td>Title</td>
+      <td>Gender</td>
+      <td>Last login</td>
+      <td>Created at</td>
+      <td></td>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.user_name%></td>
+        <td><%= user.email %></td>
+        <td><%= user.full_name %></td>
+        <td><%= user.title %></td>
+        <td><%= user.gender %></td>
+        <td><%= timeago_tag(user.last_signed_in_at) %></td>
+        <td><%= timeago_tag(user.created_at) %></td>
+        <td></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>

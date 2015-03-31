@@ -2,6 +2,7 @@
 //= require jquery_ujs
 //= require foundation
 
+//= require rails-timeago
 //= require jquery.Jcrop
 //= require pace.min
 //= require tmpl

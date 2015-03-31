@@ -1,3 +1,5 @@
-<div>
-  <%= link_to current_user.full_name, sign_out_path, method: :delete %>
-</div>
+<% if current_user %>
+  <div>
+    <%= link_to current_user.full_name, sign_out_path, method: :delete %>
+  </div>
+<% end %>

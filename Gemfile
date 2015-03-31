@@ -55,6 +55,8 @@ gem 'sinatra', :require => nil
 gem "fog", "~>1.20", require: "fog/aws/storage"
 gem 'asset_sync'
 
+gem 'doorkeeper'
+
 group :development do
   gem 'capistrano', '~> 3.3.0'
   gem 'capistrano-rails'
@@ -82,7 +84,10 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'guard-rspec'
   gem 'spring-commands-rspec'
+  gem 'faker'
 
+  gem 'rspec_api_documentation'
+  gem "apitome"
 end
 
 group :production do
@@ -93,9 +98,9 @@ group :test do
   gem 'rake'
   gem 'database_cleaner'
   gem 'shoulda-matchers'
-  gem 'faker'
   gem 'launchy'
   gem 'simplecov', require: false
   gem 'capybara'
   gem "codeclimate-test-reporter", require: nil
+  gem 'oauth2'
 end
