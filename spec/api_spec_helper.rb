@@ -22,9 +22,21 @@ end
 
 def api_get_path url, options={}, &block
   build_authentition
-  get "#{ENV['API_PATH']}#{url}", options, &block
+  get request_url(url), options, &block
 end
 
+def api_post_path url, options={}, &block
+  build_authentition
+  post request_url(url), options, &block
+end
+
+def request_url url
+  "#{ENV['API_PATH']}#{url}"
+end
+
+def as_json(json)
+  JSON.parse(json)
+end
 
 def build_authentition
   let(:oauth_client) { create(:oauth_client) }

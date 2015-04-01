@@ -34,6 +34,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       get 'me' => 'credentials#me'
       resources :profiles
+      resources :registrations, only: [:create]
     end
   end
 
